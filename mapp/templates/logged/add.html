@@ -1,0 +1,144 @@
+{% extends 'logged/index1.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+*{
+    margin-left:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+
+     background-repeat: no-repeat;
+    background-attachment: fixed;
+     background-size: cover;;
+
+
+    align-items: center;
+<!--    background-color:rgb(9, 9, 48);-->
+}
+
+.wrapper{
+
+    padding:50px 25px 0;
+    margin-top:100px;
+}
+.wrapper .headline h1{
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 52px;
+    color:black;
+    padding-bottom:38px;
+    text-align:center;
+
+}
+.wrapper .form{
+    max-width:350px;
+    width:100%;
+    margin:auto;
+}
+.wrapper .form-group{
+    margin-bottom: 15px;
+}
+.wrapper .input-group{
+    margin-bottom: 15px;
+}
+.wrapper .form-select{
+    margin-bottom: 15px;
+}
+.wrapper .form-group input{
+    display:block;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.1px;
+    padding:11px 15px;
+    height:48px;
+    border-radius: 5px;
+    color:var(--black-color);
+    border:1px solid #e4e8ee;
+    box-shadow: none;
+    width:100%;
+}
+.wrapper .form-group input:focus{
+    outline:none;
+}
+.wrapper .form-group input::placeholder{
+    color:var(--black-color);
+    font-weight: 400;
+    font-size: 14px;
+}
+.wrapper .input-group textarea::placeholder{
+    color:var(--black-color);
+    font-weight: 400;
+    font-size: 14px;
+}
+.wrapper .btn{
+    width:100%;
+    margin:15px 0 30px;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 700;
+    padding:12px 29px;
+    height:48px;
+    text-transform: uppercase;
+    color:var(--white-color);
+    background-color: black;
+    border:none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+}
+
+
+    </style>
+
+<div class="wrapper">
+         <div class="headline">
+             <h1>ADD NEW ITEMS </h1>
+         </div>
+         <form class="form" method="post" action="#">{% csrf_token %}
+            <div class="item">
+                <label>Category</label>
+                <select class="form-select" name="category">
+                    <option value="" selected>---------</option>
+                    <option value="3">Toys</option>
+                    <option value="1">Furnitures</option>
+                    <option value="2">Cloths</option>
+                </select>
+
+                <div class="form-group">
+                    <input type="text" placeholder="ItemName" required="" name="iname">
+                </div>
+                <div class="form-group">
+                    <input type="number" placeholder="Price" required="" name="price">
+                </div>
+                <div class="input-group">
+                      <textarea class="form-control" placeholder="Description"  name="des"></textarea>
+                    </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <input type="file"  required="" name="image">
+                </div>
+                <button type="submit" class="btn">ADD</button>
+
+            </div>
+
+         </form>
+
+
+</div>
+
+{% endblock %}
+
+
+
+
